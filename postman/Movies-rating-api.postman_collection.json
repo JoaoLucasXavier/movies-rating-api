@@ -1,0 +1,301 @@
+{
+	"info": {
+		"_postman_id": "1e677c30-46c6-4ffb-96bb-70c981b86809",
+		"name": "Movies-rating-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "movie",
+			"item": [
+				{
+					"name": "Movie.index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8181/movies-rating-api/api/public/api/movie/index",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8181",
+							"path": [
+								"movies-rating-api",
+								"api",
+								"public",
+								"api",
+								"movie",
+								"index"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Movie.show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8181/movies-rating-api/api/public/api/movie/show/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8181",
+							"path": [
+								"movies-rating-api",
+								"api",
+								"public",
+								"api",
+								"movie",
+								"show",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Movie.create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Harry Potter e a Câmara Secreta (TESTE)\",\n    \"year\": 2000,\n    \"sinopse\": \"(teste) Um mito antigo parece ser corroborado quando uma misteriosa presença começa a perseguir os corredores da escola mágica, deixando suas vítimas petrificadas.\",\n    \"duration\": \"2h41\",\n    \"directors\": \"(teste) Chris Columbus\",\n    \"writers\": \"(teste) J.K. Rowling\",\n    \"stars\": \"{ {'name': 'Daniel Radcliffe'}, {'name': ' Rupert Grint'}, {'name': 'Emma Watson'}}\",\n    \"image\": \"https://2.bp.blogspot.com/-Xr5U3Aa-QZ8/W9Kp58zvBMI/AAAAAAAAEYQ/r2oNpUqcYBQutfWY6aVXpUIKh1L9TIi-QCLcBGAs/s1600/harry%2Bpotter%2Be%2Ba%2Bc%25C3%25A2mara%2Bsecreta.png\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8181/movies-rating-api/api/public/api/movie/store",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8181",
+							"path": [
+								"movies-rating-api",
+								"api",
+								"public",
+								"api",
+								"movie",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Movie.edit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Harry Potter e a Câmara Secreta (EDIT)\",\n    \"year\": 2000,\n    \"sinopse\": \"(EDIT) Um mito antigo parece ser corroborado quando uma misteriosa presença começa a perseguir os corredores da escola mágica, deixando suas vítimas petrificadas.\",\n    \"duration\": \"2h41\",\n    \"directors\": \"(EDIT) Chris Columbus\",\n    \"writers\": \"(EDIT) J.K. Rowling\",\n    \"stars\": \"{ {'name': 'Daniel Radcliffe'}, {'name': ' Rupert Grint'}, {'name': 'Emma Watson'}}\",\n    \"image\": \"https://2.bp.blogspot.com/-Xr5U3Aa-QZ8/W9Kp58zvBMI/AAAAAAAAEYQ/r2oNpUqcYBQutfWY6aVXpUIKh1L9TIi-QCLcBGAs/s1600/harry%2Bpotter%2Be%2Ba%2Bc%25C3%25A2mara%2Bsecreta.png\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8181/movies-rating-api/api/public/api/movie/edit/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8181",
+							"path": [
+								"movies-rating-api",
+								"api",
+								"public",
+								"api",
+								"movie",
+								"edit",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Movie.delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8181/movies-rating-api/api/public/api/movie/destroy/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8181",
+							"path": [
+								"movies-rating-api",
+								"api",
+								"public",
+								"api",
+								"movie",
+								"destroy",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "review",
+			"item": [
+				{
+					"name": "Rating.index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8181/movies-rating-api/api/public/api/rating/index",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8181",
+							"path": [
+								"movies-rating-api",
+								"api",
+								"public",
+								"api",
+								"rating",
+								"index"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rating.show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8181/movies-rating-api/api/public/api/rating/show/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8181",
+							"path": [
+								"movies-rating-api",
+								"api",
+								"public",
+								"api",
+								"rating",
+								"show",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rating.create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rating\": 5.5,\n    \"movie_id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8181/movies-rating-api/api/public/api/rating/store",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8181",
+							"path": [
+								"movies-rating-api",
+								"api",
+								"public",
+								"api",
+								"rating",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rating.edit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rating\": 5.5,\n    \"movie_id\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8181/movies-rating-api/api/public/api/rating/edit/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8181",
+							"path": [
+								"movies-rating-api",
+								"api",
+								"public",
+								"api",
+								"rating",
+								"edit",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rating.delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8181/movies-rating-api/api/public/api/rating/destroy/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8181",
+							"path": [
+								"movies-rating-api",
+								"api",
+								"public",
+								"api",
+								"rating",
+								"destroy",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
