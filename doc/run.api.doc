@@ -1,5 +1,23 @@
+-- .ENV --
+DB_CONNECTION=mysql
+DB_HOST=mysql_movies_rating
+DB_PORT=3306
+DB_DATABASE=movies_rating_api
+DB_USERNAME=root
+DB_PASSWORD=root
+-------------------------------
+
+docker-compose up -d --build
+
+docker exec -it api_movies_rating_1 bash
+
+cd /usr/share/nginx
+
 composer install
 
 php artisan migrate
 
 php artisan db:seed --class=MoviesSeeder
+
+
+
