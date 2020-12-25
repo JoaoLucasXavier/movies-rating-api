@@ -42,5 +42,5 @@ Run the following commands from the application root.
 
 
 
-> You can use the **`/postman/Movies-rating-api.postman_collection.json`** files to test the API.
+> You can use the **`/postman/Movies-rating-api.postman_collection.json`** file to test the API.
 
