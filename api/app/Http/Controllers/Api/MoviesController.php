@@ -4,29 +4,28 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Movies;
-use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 
 class MoviesController extends Controller
 {
-    public function index()
+    public function getAll(): \Illuminate\Http\JsonResponse
     {
-        $movies =  Movies::all();
-        return response()->json(['Movies' => $movies], 200);
+        return response()->json(Movies::all(), Response::HTTP_OK);
     }
 
-    public function show($id)
+    public function getById($id): \Illuminate\Http\JsonResponse
     {
-        $movie =  DB::table('movies AS m')
-            ->select(DB::raw( 'm.name, m.year, m.sinopse, m.duration, m.directors, m.writers, m.stars, m.image, r.rating' ))
+        $movie = DB::table('movies AS m')
+            ->select(DB::raw('m.name, m.year, m.sinopse, m.duration, m.directors, m.writers, m.stars, m.image, r.rating'))
             ->join('reviews AS r', 'r.movie_id', '=', 'm.id')
             ->where('m.id', $id)
             ->get();
-        return response()->json(['Movie' => $movie], 200);
+        return response()->json($movie, Response::HTTP_OK);
     }
 
-    public function store(Request $request)
+    public function creat(Request $request): \Illuminate\Http\JsonResponse
     {
         try {
             $movies = new Movies();
@@ -40,13 +39,13 @@ class MoviesController extends Controller
             $movies->image = $request->image;
             $movies->save();
 
-            return response()->json(['New movie' => $movies], 201);
-        } catch (Exception $e) {
-            return response()->json(['Error' => $e], 501);
+            return response()->json($movies, Response::HTTP_CREATED);
+        } catch (\Exception $e) {
+            return response()->json(['Error' => $e], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 
-    public function edit(Request $request, $id)
+    public function edit(Request $request, $id): \Illuminate\Http\JsonResponse
     {
         try {
             $movies = Movies::find($id);
@@ -60,21 +59,15 @@ class MoviesController extends Controller
             $movies->image = $request->image;
             $movies->save();
 
-            return response()->json(['Edit rating' => $movies], 200);
-        } catch (Exception $e) {
-            return response()->json(['Error' => $e], 501);
+            return response()->json(Response::HTTP_NO_CONTENT);
+        } catch (\Exception $e) {
+            return response()->json(['Error' => $e], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 
-    public function destroy($id)
+    public function delete($id): Response
     {
-        try {
-            $movies = Movies::find($id);
-            $movies->delete();
-
-            return response()->json(['Delete rating' => $movies], 200);
-        } catch (Exception $e) {
-            return response()->json(['Error' => $e], 501);
-        }
+        Movies::findOrFail($id)->delete();
+        return Response()->noContent();
     }
 }
